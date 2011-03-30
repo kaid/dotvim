@@ -20,7 +20,7 @@ function _backup() {
 if [ -d ~/.vim ];then
   _backup ~/.vim
 fi
-if [ -e ~/.vimrc ];then
+if [ -e ~/.vimrc ] || [ -L ~/.vimrc ];then
   _backup ~/.vimrc
 fi
 if [ -d ~/.vim_kaid ];then
