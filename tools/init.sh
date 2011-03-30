@@ -1,4 +1,4 @@
-#!/usr/bin/en sh
+#!/usr/bin/env sh
 
 function _backup() {
   _ds=$(date +"%s")
