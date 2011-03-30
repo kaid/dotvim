@@ -29,16 +29,6 @@ autocmd BufNewFile, BufRead *.rss, *.atom setfiletype xml
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd! BufWritePost *vimrc :source %
 
-  " A pre search&substitute helper function to restore the cursor position
-function! Preserve(command)
-  " Preparation: save last search, and cursor position.
-  let _s=@/
-  let l = line(".")
-  let c = col(".")
-  " Do the bussiness
-  execute a:command
-  " Clean up: restore previous search history, and cursor position
-  let @/=_s
-  call cursor(l, c)
-endfunction
-
+" Load Pathogen
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()

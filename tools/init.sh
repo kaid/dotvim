@@ -20,7 +20,7 @@ function _backup() {
 if [ -d ~/.vim ];then
   _backup ~/.vim
 fi
-if [ -f ~/.vimrc ];then
+if [ -f ~/.vimrc || -s ~/.vimrc ];then
   _backup ~/.vimrc
 fi
 if [ -d ~/.vim_kaid ];then
@@ -41,7 +41,9 @@ _clone
 echo "Installing Kaid's dotvim..."
 mv ~/.vim_kaid ~/.vim
 cd ~/.vim && /usr/bin/env git submodule init && /usr/bin/env git submodule update
+mkdir ~/.vim/autoload
 ln -s ~/.vim/vimrc ~/.vimrc
+ln -s ~/.vim/bundle/pathogen/autoload/pathogen.vim ~/.vim/autoload/pathogen.vim
 echo "Installition done!"
 
 exit $?
