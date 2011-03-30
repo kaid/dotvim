@@ -1,5 +1,13 @@
+" Load Pathogen
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
+colorscheme vividchalk
+set guifont=Menlo\ Bold:h14
+
 filetype on
 filetype plugin indent on
+
 let mapleader = ","
 set guioptions-=T
 set number
@@ -28,7 +36,3 @@ autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
 autocmd BufNewFile, BufRead *.rss, *.atom setfiletype xml
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd! BufWritePost *vimrc :source %
-
-" Load Pathogen
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
