@@ -18,20 +18,20 @@ function _backup() {
 }
 
 if [ -d ~/.vim ];then
-  _backup .vim
+  _backup ~/.vim
 fi
 if [ -f ~/.vimrc ];then
-  _backup .vimrc
+  _backup ~/.vimrc
 fi
 if [ -d ~/.vim_kaid ];then
-  _backup .vim_kaid
+  _backup ~/.vim_kaid
 fi
 
 function _clone() {
   echo "Cloning Kaid's dotvim..."
   /usr/bin/env git clone git@github.com:kaid/dotvim.git ~/.vim_kaid 2>/dev/null
   if [ $? -ne 0 ];then
-    /usr/bin/env git clone git://github.com/kaid/dotvim.git .vim_kaid
+    /usr/bin/env git clone git://github.com/kaid/dotvim.git ~/.vim_kaid
   fi
   if [ $? -eq 0 ];then echo "Cloned!";fi
 }
