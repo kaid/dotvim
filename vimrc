@@ -2,6 +2,7 @@ filetype on
 filetype plugin indent on
 let mapleader = ","
 set guioptions-=T
+set number
 
 " Show hiden characters
 nmap <leader>l :set list!<CR>
