@@ -1,8 +1,9 @@
 #!/usr/bin/en sh
+
 function _backup() {
   _ds=$(date +"%s")
   echo "Backing up existing $1?(yes/no/exit):"
-  while read yon; do
+  while read yon;do
     case $yon in
       yes)echo "Backing up it to $1_$_ds..."
         mv $1 $1_$_ds
@@ -11,9 +12,9 @@ function _backup() {
         rm -rf $1
         echo "Deleted!";break;;
       exit)echo "Canceling installation...";exit;;
-      *)echo "Unrecognized answer! Just type y or n!";continue;;
+      *)echo "Unrecognized answer! Just type yes, no or exit!";;
     esac
-  done
+  done < /dev/tty
 }
 
 if [ -d ~/.vim ];then
@@ -28,12 +29,11 @@ fi
 
 function _clone() {
   echo "Cloning Kaid's dotvim..."
-  /usr/bin/env git clone git@github.com:kaid/dotvim.git .vim_kaid 2>&1 && _rslt=1 || _rslt=0
-  if [ $_rslt -eq 0 ];then
-    echo $_rslt
+  /usr/bin/env git clone git@github.com:kaid/dotvim.git ~/.vim_kaid 2>/dev/null
+  if [ $? -ne 0 ];then
     /usr/bin/env git clone git://github.com/kaid/dotvim.git .vim_kaid
   fi
-  echo "Cloned!"
+  if [ $? -eq 0 ];then echo "Cloned!";fi
 }
 
 _clone
