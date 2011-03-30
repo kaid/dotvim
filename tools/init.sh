@@ -1,27 +1,16 @@
-if [ -d ~/.vim_kaid ];then
-  rm -rf ~/.vim_kaid
-  echo "Cloning Kaid's dotvim..."
-  /usr/bin/env git clone git@github.com:kaid/dotvim.git .vim_kaid 2>&1 && _rslt=1 || _rslt=0
-fi
-
-if [ $rslt==0 ];then
-  /usr/bin/env git clone git://github.com/kaid/dotvim.git .vim_kaid
-fi
-
-echo "Cloned!"
-
 function _backup() {
   _ds=$(date +"%s")
-  echo "Backing up existing $1?(y/n):"
+  echo "Backing up existing $1?(yes/no/exit):"
   while read yon; do
     case $yon in
-      y)echo "Backing up it to $1_$_ds...";
-        mv $1 $1_$_ds;
+      yes)echo "Backing up it to $1_$_ds..."
+        mv $1 $1_$_ds
         echo "Backuped!";break;;
-      n)echo "Deleting $1..."
-        rm -rf $1;
+      no)echo "Deleting $1..."
+        rm -rf $1
         echo "Deleted!";break;;
-      *)echo "Unrecognized answer! Just type y or n!";;
+      exit)echo "Canceling installation...";exit;;
+      *)echo "Unrecognized answer! Just type y or n!";continue;;
     esac
   done
 }
@@ -32,6 +21,21 @@ fi
 if [ -f ~/.vimrc ];then
   _backup .vimrc
 fi
+if [ -d ~/.vim_kaid ];then
+  _backup .vim_kaid
+if
+
+function _clone() {
+  echo "Cloning Kaid's dotvim..."
+  /usr/bin/env git clone git@github.com:kaid/dotvim.git .vim_kaid 2>&1 && _rslt=1 || _rslt=0
+  if [ $_rslt -eq 0 ];then
+    echo $_rslt
+    /usr/bin/env git clone git://github.com/kaid/dotvim.git .vim_kaid
+  fi
+  echo "Cloned!"
+}
+
+_clone
 
 echo "Installing Kaid's dotvim..."
 mv ~/.vim_kaid ~/.vim
