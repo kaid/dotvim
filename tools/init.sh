@@ -1,3 +1,4 @@
+#!/usr/bin/en sh
 function _backup() {
   _ds=$(date +"%s")
   echo "Backing up existing $1?(yes/no/exit):"
@@ -23,7 +24,7 @@ if [ -f ~/.vimrc ];then
 fi
 if [ -d ~/.vim_kaid ];then
   _backup .vim_kaid
-if
+fi
 
 function _clone() {
   echo "Cloning Kaid's dotvim..."
@@ -42,3 +43,5 @@ mv ~/.vim_kaid ~/.vim
 cd ~/.vim && /usr/bin/env git submodule init && /usr/bin/env git submodule update
 ln -s ~/.vim/vimrc ~/.vimrc
 echo "Installition done!"
+
+exit $?
