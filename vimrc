@@ -9,8 +9,14 @@ filetype on
 filetype plugin indent on
 
 let mapleader = ","
-set guioptions-=T
+set go-=T
 set number
+
+set fuopt+=maxhorz
+map <leader>f :set invfu<CR>
+
+" Statusline setting
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
 
 " Show hiden characters
 nmap <leader>l :set list!<CR>
@@ -36,3 +42,7 @@ autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
 autocmd BufNewFile, BufRead *.rss, *.atom setfiletype xml
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd! BufWritePost *vimrc :source %
+set number
+set nowrap
+set go-=L
+set go-=r
