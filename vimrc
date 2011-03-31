@@ -16,7 +16,7 @@ set fuopt+=maxhorz
 map <leader>f :set invfu<CR>
 
 " Statusline setting
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")} %{fugitive#statusline()}
 
 " Show hiden characters
 nmap <leader>l :set list!<CR>
