@@ -1,6 +1,7 @@
 " Load Pathogen
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+colorscheme vividchalk
 
 set guifont=Menlo\ Bold:h14
 
@@ -12,7 +13,6 @@ set go-=T
 set number
 
 if has("gui_running")
-  colorscheme vividchalk
   set fuopt+=maxhorz
   map <leader>f :set invfu<CR>
 endif
