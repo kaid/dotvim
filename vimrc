@@ -1,7 +1,7 @@
 " Load Pathogen
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
-colorscheme vividchalk
+syntax on
 
 set guifont=Menlo\ Bold:h14
 
@@ -9,12 +9,13 @@ filetype on
 filetype plugin indent on
 
 let mapleader = ","
-set go-=T
 set number
 
 if has("gui_running")
+  colorscheme solarized
   set fuopt+=maxhorz
   map <leader>f :set invfu<CR>
+  set go-=T
 endif
 
 " Statusline setting
@@ -44,7 +45,6 @@ autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
 autocmd BufNewFile, BufRead *.rss, *.atom setfiletype xml
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd! BufWritePost *vimrc :source %
-set number
 set nowrap
 set go-=L
 set go-=r
