@@ -48,3 +48,6 @@ autocmd! BufWritePost *vimrc :source %
 set nowrap
 set go-=L
 set go-=r
+
+" Toggle Gundo graph
+nmap <F5> :GundoToggle<CR>
