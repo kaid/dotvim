@@ -39,6 +39,6 @@ cd ~/.vim && /usr/bin/env git submodule init && /usr/bin/env git submodule updat
 mkdir ~/.vim/autoload
 ln -s ~/.vim/vimrc ~/.vimrc
 ln -s ~/.vim/bundle/pathogen/autoload/pathogen.vim ~/.vim/autoload/pathogen.vim
-echo "Installition done!"
+echo "Installation done!"
 
 exit $?
