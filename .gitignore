@@ -3,3 +3,4 @@
 ~*
 autoload
 .netrwhist
+bundle/peepopen/*

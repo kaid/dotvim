@@ -32,3 +32,11 @@
 [submodule "bundle/tabular"]
 	path = bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
+[submodule "bundle/surround"]
+	path = bundle/surround
+	url = git://github.com/tpope/vim-surround.git
+  ignore = untracked
+[submodule "bundle/matchit"]
+	path = bundle/matchit
+	url = git://github.com/mhz/vim-matchit.git
+  ignore = untracked
