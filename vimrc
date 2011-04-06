@@ -48,3 +48,13 @@ autocmd! BufWritePost *vimrc :source %
 
 " Toggle Gundo graph
 nmap <F5> :GundoToggle<CR>
+
+" Tabular mappings
+nmap <leader>; :Tab /
+vmap <leader>; :Tab /
+
+" Bubble text
+nmap <M-Up> [e
+nmap <M-Down> ]e
+vmap <M-Up> [egv
+vmap <M-Down> ]egv
